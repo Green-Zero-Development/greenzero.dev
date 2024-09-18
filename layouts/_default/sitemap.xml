@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.sitemaps.org/schemas/sitemap/0.9">
   {{ range .Pages }}
-    {{- if and .Permalink (not (or (strings.Contains .Permalink "/home") (strings.Contains .Permalink "/404-2") (strings.Contains .Permalink "/categories") (strings.Contains .Permalink "/tags"))) -}}
+    {{- if and .Permalink (not (or (strings.Contains .Permalink "/home") (strings.Contains .Permalink "/404-2") (strings.Contains .Permalink "/categories") (strings.Contains .Permalink "/tags") (strings.Contains .Params.acf.seo.include_in_sitemap "No"))) -}}
   <url>
     <loc>{{ .Permalink }}</loc>{{ if not .Lastmod.IsZero }}
     <lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05-07:00" ) }}</lastmod>{{ end }}{{ with .Sitemap.ChangeFreq }}

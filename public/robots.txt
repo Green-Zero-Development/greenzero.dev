@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /
-
-Sitemap: https://hugo-2024-eight.vercel.app/sitemap.xml

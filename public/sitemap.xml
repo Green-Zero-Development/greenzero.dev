@@ -2,24 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost:1313/contact/</loc>
+    <loc>https://hugo-2024-eight.vercel.app/contact/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>http://localhost:1313/hosting-contract/</loc>
+    <loc>https://hugo-2024-eight.vercel.app/hosting-contract/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>http://localhost:1313/packages/</loc>
+    <loc>https://hugo-2024-eight.vercel.app/packages/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>http://localhost:1313/thank-you/</loc>
+    <loc>https://hugo-2024-eight.vercel.app/thank-you/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>http://localhost:1313/website-edit-sheet/</loc>
+    <loc>https://hugo-2024-eight.vercel.app/website-edit-sheet/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>http://localhost:1313/website-major-change-sheet/</loc>
+    <loc>https://hugo-2024-eight.vercel.app/website-major-change-sheet/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://hugo-2024-eight.vercel.app/</loc>
   </url>
 </urlset>

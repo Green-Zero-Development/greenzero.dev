@@ -1,0 +1,20 @@
+{{ $url := "https://content.greenzero.dev/wp-json/menus/all" }}
+{{ $data := getJSON $url }}
+
+<footer>
+    <div class="copyright">
+        <h6>© {{ time.Now | time.Format "January 2, 2006" }} |<div class="break-line"></div> Green Zero Development LLC</h6>
+    </div>
+    <a href="/" class="dark-logo logo">
+        <img src="{{ .logos.acf.light_logo_close.url }}" alt="{{ .logos.acf.light_logo_close.alt }}">
+    </a>
+    <a href="/" class="light-logo logo">
+        <img src="{{ .logos.acf.dark_logo_close.url }}" alt="{{ .logos.acf.dark_logo_close.alt }}">
+    </a>
+</footer>
+
+<script>
+    window.addEventListener('load', function() {
+        document.body.style.visibility = 'visible';
+    });
+</script>

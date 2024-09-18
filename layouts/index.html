@@ -1,0 +1,109 @@
+{{ define "main" }}
+
+  {{ $url := "https://content.greenzero.dev/wp-json/pages/all/home" }}
+  {{ $data := getJSON $url }}
+
+  {{ if $data }}
+    {{ with $data }}
+
+      {{ partial "global/head.html" (dict "seo" .acf.seo) }}
+      {{ partial "global/header.html" (dict "seo" .acf.seo "logos" (index .site_data "Logos") "menus" .menus ) }}
+      
+      <div class="hero">
+        <h1>{{ .acf.top_text }}</h1>
+      </div>
+
+      <div class="after-hero">
+        <h2>{{ .acf.after_header_text | safeHTML }}</h2>
+      </div>
+
+      <script>
+        var imageGroups = [
+          {{ range .acf.reaction_images.image_group }}
+          {
+            sad: "{{ .sad_image.sizes.thumbnail }}",
+            content: "{{ .content_image.sizes.thumbnail }}",
+            happy: "{{ .happy_image.sizes.thumbnail }}",
+            excited: "{{ .excited_image.sizes.thumbnail }}"
+          },
+          {{ end }}
+        ];
+      
+        function getRandomImageGroup() {
+          return imageGroups[Math.floor(Math.random() * imageGroups.length)];
+        }
+      
+        window.onload = function() {
+          var randomGroup = getRandomImageGroup();
+          
+          document.getElementById('sadImage').src = randomGroup.sad;
+          document.getElementById('contentImage').src = randomGroup.content;
+          document.getElementById('happyImage').src = randomGroup.happy;
+          document.getElementById('excitedImage').src = randomGroup.excited;
+        };
+      </script>
+
+      <div class="packages">
+        {{ range $indexpackage, $element := .acf.package }}
+          <div class="package">
+            <img class="open-tag tag" src="https://i0.wp.com/content.greenzero.dev/wp-content/uploads/2024/08/gz-light-logo.png" alt="" width="200px" height="21px">
+            <h3>{{ .title }}</h3>
+            {{ if eq $indexpackage 0 }}
+                <div class="animal-image">
+                  <img id="sadImage" alt="Random Sad Image">
+                </div>
+            {{ else if eq $indexpackage 1 }}
+                <div class="animal-image">
+                  <img id="contentImage" alt="Random Content Image">
+                </div>
+            {{ else if eq $indexpackage 2 }}
+                <div class="animal-image">
+                  <img id="happyImage" alt="Random Happy Image">
+                </div>
+            {{ else if eq $indexpackage 3 }}
+                <div class="animal-image">
+                  <img id="excitedImage" alt="Random Excited Image">
+                </div>
+            {{ else }}
+              <div class="animal-image">
+                <img id="contentImage" alt="Random Content Image">
+              </div>
+            {{ end }}
+            <ul>
+              {{ range $indexlistitem, $element := .list_item }}
+              <style>
+                .list-item-{{ $indexlistitem }}-{{ $indexpackage }}::before {
+                  {{ if eq .plus_amount "1" }}
+                  content: "+";
+                  {{ else if eq .plus_amount "2" }}
+                  content: "++";
+                  {{ else if eq .plus_amount "3" }}
+                  content: "+++";
+                  {{ else if eq .plus_amount "infinite" }}
+                  content: "++++++?";
+                  {{ end }}
+                }
+              </style>
+              <li class="list-item-{{ $indexlistitem }}-{{ $indexpackage }}">{{ .text }}</li>
+              {{ end }}
+            </ul>
+            <div class="price-group">
+              <p>{{ .pricing_text }}</p>
+              <div class="button-group">
+                <a href="/packages/#{{ $indexpackage }}" class="button">{{ .click_for_more_text }}</a>
+                <a href="/contact/?entry={%22HowCanWeHelpYou%22:%22I%27m%20interested%20in%20hosting%22,%22AreYouInterestedInAParticularPackage%22:'{{ htmlEscape .title }}'}" class="button">{{ .start_hosting_text }}</a>
+              </div>
+            </div>
+            <img class="close-tag tag" src="https://i0.wp.com/content.greenzero.dev/wp-content/uploads/2024/08/gz-light-logo-closed.png" alt="" width="200px" height="27px">
+          </div>
+        {{ end }}
+      </div>
+
+    {{ partial "global/footer.html" (dict "logos" (index .site_data "Logos") "menus" .menus)  }}
+      
+    {{ end }}
+  {{ else }}
+      <p>No data found.</p>
+  {{ end }}
+
+{{ end }}

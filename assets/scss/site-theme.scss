@@ -1,0 +1,83 @@
+.dark body {
+    background-color: $primary-dark !important;
+}
+
+.light body {
+    background-color: white !important;
+}
+
+.light .topbar {
+    
+    color: #ffffff;
+    .menu-toggle .fa-primary {
+        fill: $primary-dark !important;
+    }
+    .menu-toggle .fa-secondary {
+        fill: #ffffff !important;
+    }
+}
+
+.light .light-logo {
+    display: block !important;
+}
+
+.light .dark-logo {
+    display: none !important;
+}
+
+.dark .dark-logo {
+    display: block !important;
+}
+
+.dark .light-logo {
+    display: none !important;
+}
+
+.light .slide-out-menu {
+    color: $primary-dark !important;
+    .panel-inner {
+        background-color: white !important;
+        color: $primary-dark !important;
+    }
+    a {
+        color: $primary-dark !important;
+    }
+    svg {
+        fill: $primary-dark !important;
+    }
+    .footer {
+        background-color: $primary-grey !important;
+    }
+}
+
+.light h1, .light h2 {
+    color: $secondary-dark !important;
+    border-color: $secondary-dark !important;
+}
+
+.light .after-hero strong {
+    color: $secondary-dark !important;
+}
+
+.light .package {
+    background-color: $primary-dark !important;
+    border-color: $primary-green !important;
+}
+
+.light .inner-page-package {
+    background-color: $primary-dark;
+    border-color: $primary-green !important;
+}
+
+.light .form {
+    background-color: $primary-dark !important;
+    border-color: $primary-green !important;
+}
+
+.light .package .price-group p {
+    color: $primary-green !important;
+}
+
+.light .inner-page-package .price-group p {
+    color: $primary-green !important;
+}

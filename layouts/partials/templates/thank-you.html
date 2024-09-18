@@ -1,0 +1,14 @@
+
+<div class="thank-you">
+    <div class="hero">
+        <h1>{{ .acf.hero_section.title }}</h1>
+    </div>
+    
+    <div class="after-hero">
+        <h2>{{ .acf.hero_section.description | safeHTML }}</h2>
+    </div>
+    
+    <div class="back-home">
+        <a href="{{ partial "global/button_link.html" (dict "button" .acf.hero_section.button ) | safeURL }}" class="button">{{ .acf.hero_section.button.text }}</a>
+    </div>
+</div>

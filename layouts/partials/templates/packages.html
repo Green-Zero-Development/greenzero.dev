@@ -1,0 +1,32 @@
+<div class="packages">
+    <div class="hero">
+        <h1>{{ .acf.top_text }}</h1>
+    </div>
+    
+    <div class="after-hero">
+        <h2>{{ .acf.after_header_text | safeHTML }}</h2>
+    </div>
+    {{ range $indexpackage, $element := .acf.package }}
+        <div id="{{ $indexpackage }}" class="package-anchor"></div>
+        <div class="inner-page-package">
+        <img class="open-tag tag" src="https://i0.wp.com/content.greenzero.dev/wp-content/uploads/2024/08/gz-light-logo.png" alt="">
+        <h3>{{ .name }}</h3>
+        <a href="/contact/?entry={%22HowCanWeHelpYou%22:%22I%27m%20interested%20in%20hosting%22,%22AreYouInterestedInAParticularPackage%22:'{{ htmlEscape .name }}'}" class="button top-button">Start Hosting</a>
+        <ul>
+            {{ range $indexlistitem, $element := .feature }}
+            <li class="list-item {{ if eq (mod $indexlistitem 2) 1 }}dark-li{{ end }}">
+                <h4>{{ .title }}</h4>
+                <div>{{ .description | safeHTML }}</div>
+            </li>
+            {{ end }}
+        </ul>
+        <div class="price-group">
+            <p>{{ .pricing_text }}</p>
+            <div class="button-group">
+                <a href="/contact/?entry={%22HowCanWeHelpYou%22:%22I%27m%20interested%20in%20hosting%22,%22AreYouInterestedInAParticularPackage%22:'{{ htmlEscape .name }}'}" class="button">Start Hosting</a>
+            </div>
+        </div>
+        <img class="close-tag tag" src="https://i0.wp.com/content.greenzero.dev/wp-content/uploads/2024/08/gz-light-logo-closed.png" alt="">
+        </div>
+    {{ end }}
+</div>

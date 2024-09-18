@@ -1,0 +1,18 @@
+{{ $linkType := .button.link_to_where }}
+{{ $onsiteLink := .button.onsite_link | safeURL }}
+{{ $offsiteLink := .button.offsite_link | safeURL }}
+{{ $fileLink := .button.file_link | safeURL }}
+
+{{ $link := "" }}
+
+{{ if eq $linkType "A page on this site" }}
+    {{ $link = $onsiteLink }}
+{{ else if eq $linkType "Another site" }}
+    {{ $link = $offsiteLink }}
+{{ else if eq $linkType "A file" }}
+    {{ $link = $fileLink }}
+{{ else }}
+    {{ $link = "/" | safeURL }}
+{{ end }}
+
+{{ return $link }}

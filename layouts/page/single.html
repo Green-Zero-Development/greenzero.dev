@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+{{ partial "global/head.html" (dict "seo" .Params.acf.seo) }}
+{{ partial "global/header.html" (dict "seo" .Params.acf.seo "logos" (index .Params.site_data "Logos") "menus" .Params.menus)  }}
+
+{{ if eq .Params.template "templates/thank-you.php" }}
+    {{ partial "templates/thank-you.html" (dict "acf" .Params.acf)  }}
+{{ else if eq .Params.template "templates/packages.php" }}
+    {{ partial "templates/packages.html" (dict "acf" .Params.acf)  }}
+{{ else if eq .Params.template "templates/contact.php" }}
+    {{ partial "templates/contact.html" (dict "acf" .Params.acf)  }}
+{{ else if eq .Path "/hosting-contract" }}
+    {{ partial "templates/hosting-contract.html" (dict "acf" .Params.acf)  }}
+{{ else if eq .Path "/website-major-change-sheet" }}
+    {{ partial "templates/website-major-change-sheet.html" (dict "acf" .Params.acf)  }}
+{{ else if eq .Path "/website-edit-sheet" }}
+    {{ partial "templates/website-edit-sheet.html" (dict "acf" .Params.acf)  }}
+{{ else }}
+    
+{{ end }}
+
+{{ partial "global/footer.html" (dict "logos" (index .Params.site_data "Logos") "menus" .Params.menus)  }}
+
+{{ end }}

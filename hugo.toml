@@ -1,0 +1,12 @@
+baseURL = 'https://hugo-2024-eight.vercel.app/'
+languageCode = 'en-us'
+title = 'Green Zero Development'
+theme = 'ananke'
+enableRobotsTXT = true
+disableKinds = ['taxonomy', 'rss']
+
+[sitemap]
+  changeFreq = ''
+  disable = false
+  filename = 'sitemap.xml'
+  priority = -1

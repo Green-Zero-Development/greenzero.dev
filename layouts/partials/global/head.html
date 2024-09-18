@@ -1,0 +1,51 @@
+<head>
+    <title>{{ .seo.meta_title }} | Green Zero Development</title>
+    <meta name="description" content="{{ .seo.meta_description }}">
+
+    <style>
+        body {
+            visibility: hidden;
+            background-color: #141a26;
+        }
+    </style>
+
+    {{ $styles := resources.Get "scss/main.scss" | toCSS | minify }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+
+    <script defer src="https://unpkg.com/@alpinejs/ui@3.14.1-beta.0/dist/cdn.min.js" defer></script>
+    <script defer src="https://unpkg.com/@alpinejs/focus@3.14.1/dist/cdn.min.js" defer></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+    <link rel="stylesheet" href="https://use.typekit.net/gqy6bkg.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favi/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favi/favicon-16x16.png">
+    <link rel="manifest" href="/favi/site.webmanifest">
+    <link rel="mask-icon" href="/favi/safari-pinned-tab.svg" color="#141a26">
+    <meta name="msapplication-TileColor" content="#141a26">
+    <meta name="theme-color" content="#141a26">
+
+    <!-- Matomo --><script>
+    var _paq = window._paq = window._paq || [];
+    if (!window._paq.find || !window._paq.find(function (m) { return m[0] === "disableCookies";
+    })) {
+        window._paq.push(["disableCookies"]);
+    }
+    _paq.push(['setVisitorCookieTimeout', 34186669]);
+    _paq.push(['setSessionCookieTimeout', 1800]);
+    _paq.push(['setReferralCookieTimeout', 15778463]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    _paq.push(['alwaysUseSendBeacon']);
+    _paq.push(['setTrackerUrl', "\/\/content.greenzero.dev\/wp-content\/plugins\/matomo\/app\/matomo.php"]);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript';
+    g.async=true;
+    g.src="\/\/content.greenzero.dev\/wp-content\/uploads\/matomo\/matomo.js";
+    s.parentNode.insertBefore(g,s);
+    </script>
+    <!-- End Matomo Code -->
+
+</head>

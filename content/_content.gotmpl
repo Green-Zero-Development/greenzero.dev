@@ -1,0 +1,31 @@
+{{/* Get remote data. */}}
+{{ $data := dict }}
+{{ $url := "https://content.greenzero.dev/wp-json/pages/all" }}
+{{ with resources.GetRemote $url }}
+  {{ with .Err }}
+    {{ errorf "Unable to get remote resource %s: %s" $url . }}
+  {{ else }}
+    {{ $data = . | transform.Unmarshal }}
+  {{ end }}
+{{ else }}
+  {{ errorf "Unable to get remote resource %s" $url }}
+{{ end }}
+
+{{ $globalSections := $data.global_sections }}
+{{ $siteData := $data.site_data }}
+{{ $menus := $data.menus }}
+
+{{/* Add pages and page resources. */}}
+{{ range $data.pages }}
+  {{/* Skip pages with slugs "home" and "404-2". */}}
+  {{ if not (or (eq .slug "home") (eq .slug "404-2")) }}
+    {{/* Add page. */}}
+    {{ $params := dict "template" .template "acf" .acf "site_data" $siteData "global_sections" $globalSections "menus" $menus }}
+    {{ $page := dict
+      "kind" "page"
+      "path" .slug
+      "params" $params
+    }}
+    {{ $.AddPage $page }}
+  {{ end }}
+{{ end }}

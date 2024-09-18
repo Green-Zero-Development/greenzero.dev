@@ -1,0 +1,214 @@
+header {
+    border-top: solid 10px $primary-grey;
+}
+
+.topbar {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 32px;
+    background-color: transparent;
+    padding: 0px;
+    width: 100%;
+    color: $primary-dark;
+    z-index: 998;
+    @media (min-width: $small) {
+        top: 0;
+        bottom: auto;
+        padding: 5px 5px 0px 5px;
+    }
+    @media (min-width: $large) {
+        padding: 15px 20px 0px 25px;
+    }
+    .menu-toggle-button {
+        width: auto;
+    }
+    .site-theme-toggle-dark {
+        min-width: 25px;
+        min-height: 25px;
+    }
+    .site-theme-toggle-light {
+        min-width: 25px;
+        min-height: 25px;
+    }
+    .desktop-icons {
+        display: flex;
+        gap: 12px;
+        width: 100%;
+        justify-content: space-between;
+        svg:hover {
+            cursor: pointer;
+        }
+        .site-theme-toggle-light:hover .fa-primary {
+            fill: #2bab4a;
+        }
+        .site-theme-toggle-dark:hover .fa-secondary {
+            fill: #2bab4a;
+        }
+        .menu-toggle:hover .fa-primary {
+            fill: #2bab4a;
+        }
+        .button {
+            width: auto !important;
+        }
+        @media (max-width: $medium) {
+            display: none;
+        }
+    }
+    .mobile-icons {
+        display: flex;
+        gap: 12px;
+        width: 100%;
+        align-items: center;
+        justify-content: right;
+        .button {
+            width: auto !important;
+        }
+        @media (min-width: $small) {
+            justify-content: space-between;
+        }
+        @media (min-width: $medium) {
+            display: none;
+            
+        }
+    }
+    .copyright {
+        font-size: 16px;
+        line-height: 1;
+        opacity: 0.5;
+    }
+}
+
+.logo {
+    img {
+        width: 100%;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.slide-out-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    max-width: 500px;
+    width: 100%;
+    color: white;
+    font-size: 24px;
+    z-index: 10;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: disc;
+        padding: 0px 20px;
+    }
+    li {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    a {
+        width: auto;
+        color: white;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .first-button {
+        width: 50% !important;
+        color: #000 !important;
+    }
+    .second-button {
+        width: 50% !important;
+        color: #000 !important;
+    }
+    .dropdown {
+        width: 100%;
+    }
+    .dropdown-trigger {
+        display: flex;
+        align-items: center;
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+    .site-theme-toggle {
+        position: absolute;
+        bottom: 5rem;
+        right: 1rem;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        font-size: 1rem;
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+    svg {
+        fill: white;
+    }
+    .footer {
+        .first-button {
+            margin-right: 10px;
+        }
+    }
+}
+
+.panel {
+    height: 100%;
+    width: 100%;
+}
+
+.panel-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: black;
+    color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px;
+}
+
+.content {
+    padding: 20px;
+}
+
+.footer {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    background: $primary-dark;
+}

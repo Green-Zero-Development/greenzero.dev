@@ -1,4 +1,4 @@
-baseURL = 'https://hugo-2024-eight.vercel.app/'
+baseURL = 'https://www.greenzero.dev/'
 languageCode = 'en-us'
 title = 'Green Zero Development'
 theme = 'ananke'

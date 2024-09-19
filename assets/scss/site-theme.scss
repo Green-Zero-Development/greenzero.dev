@@ -19,10 +19,12 @@
 
 .light .light-logo {
     display: block !important;
+    transition: 0.25s;
 }
 
 .light .dark-logo {
     display: none !important;
+    transition: 0.25s;
 }
 
 .dark .dark-logo {

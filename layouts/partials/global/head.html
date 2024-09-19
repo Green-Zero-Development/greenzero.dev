@@ -2,6 +2,12 @@
     <title>{{ .seo.meta_title }} | Green Zero Development</title>
     <meta name="description" content="{{ .seo.meta_description }}">
 
+    <style>
+        body {
+            background-color: #141a26;
+        }
+    </style>
+
     {{ $styles := resources.Get "scss/main.scss" | toCSS | minify }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
 

@@ -1,0 +1,27 @@
+
+<div class="form-page">
+    <div class="hero">
+        <h1>{{ .acf.top_text }}</h1>
+    </div>
+    
+    <div class="after-hero">
+        <h2>{{ .acf.after_header_text | safeHTML }}</h2>
+    </div>
+    
+    <div class="form">
+        <div class="cognito">
+            <script src="https://services.cognitoforms.com/s/soTZv_QtCkGHiCIJGffUrQ"></script>
+            <script>Cognito.load("forms", { id: "32" });</script>
+            <div class="preloader">
+                <h6>Hold on... We're loading the form!</h6>
+                <button id="loadFormBackupButton" class="button">Click here if the form never loads.</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('loadFormBackupButton').addEventListener('click', function() {
+    Cognito.load("forms", { id: "32" });
+});
+</script>
